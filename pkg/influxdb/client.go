@@ -10,9 +10,9 @@ import (
 )
 
 const (
-	influxToken  = "YOUR_INFLUXDB_TOKEN"
-	influxOrg    = "YOUR_INFLUXDB_ORG"
-	influxBucket = "YOUR_INFLUXDB_BUCKET"
+	influxToken  = "INFLUX_DB_TOKEN"
+	influxOrg    = "iscsi"
+	influxBucket = "iscsi_performance"
 	influxURL    = "http://localhost:8086"
 )
 
@@ -53,4 +53,5 @@ func (c *Client) WriteData(operation string, fileSize int, duration time.Duratio
 	if err != nil {
 		fmt.Printf("Error writing to InfluxDB: %v\n", err)
 	}
+	c.client.Close()
 }
